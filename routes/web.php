@@ -19,8 +19,8 @@ Route::get('/authors-list', 'HomeController@auhthorsList');
 Route::get('/books-list', 'HomeController@booksList');
 Route::get('/author/{id}', 'HomeController@booksList');
 
-Route::get('/my-list', 'AdminController@getList');
+Route::get('/my-list', 'AdminController@getList')->middleware('auth');
 
-Route::post('/add-book', 'AdminController@createBook');
-Route::post('/edit-book', 'AdminController@editBook');
-Route::post('/delete-book', 'AdminController@deleteBook');
+Route::post('/add-book', 'AdminController@createBook')->middleware('auth');
+Route::post('/edit-book', 'AdminController@editBook')->middleware('auth');
+Route::post('/delete-book', 'AdminController@deleteBook')->middleware('auth');
